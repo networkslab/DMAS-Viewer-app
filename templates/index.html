@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <title>DMAS Viewer</title>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/index.css') }}">
+        <link href="https://fonts.googleapis.com/css?family=Roboto+Slab&display=swap" rel="stylesheet">
+        <style>
+            .slice-image img {
+                width: {{ image_width }}%;
+                height: {{ image_height }}%;
+            }
+        </style>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+        <script type=text/javascript>
+            function add_one()
+            {
+              var val = parseInt($("#slider").val())+1;
+              $("#slider").val(val);
+              backendGetImage();
+            }
+            function subtract_one()
+            {
+              var val = parseInt($("#slider").val())-1;
+              $("#slider").val(val);
+              backendGetImage();
+            }
+            function backendGetImage() {
+                $('#slider_value').html( $("#slider").val() );
+                $.getJSON('/get_image', {
+                  slider_: $("#slider").val(),
+                }, function(data) {
+                    $("#image").attr("src", "data:image/png;base64," + data.img);
+                });
+            }
+        </script>
+        <script type="text/javascript">
+            $(document).on('input', '#slider', function() {
+                backendGetImage();
+             });
+        </script>
+    </head>
+    <body>
+        <div class="container">
+            <div class="headline">
+            <!-- Headline -->
+                <h1>DMAS Viewer</h1>
+            </div>
+            <div class="slider">
+            <!-- Slider -->
+                <p><span id="slider_value">{{ max_slider//2 }}</span> cm</p>
+                <div class="slider-interface">
+                    <button class="interface-btn" onClick="subtract_one()">–</button>
+                    <input type="range" class="range" min="0"
+                           max="{{ max_slider }}" step="{{ 1 }}"
+                           name="slider" id="slider" value="{{ max_slider//2 }}" >
+                    <button class="interface-btn" onClick="add_one()">+</button>
+                </div>
+                <script>
+                    backendGetImage();
+                </script>
+            </div>
+            <div class="slice-image">
+            <!-- Slice -->
+                <img id="image" src="#"/>
+            </div>
+        </div>
+        <div class="footer">
+            <p>Design by <a href="https://github.com/Rufaim">Pavel Rumiantsev</a></p>
+        </div>
+    </body>
+</html>
+
+

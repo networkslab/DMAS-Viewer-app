@@ -1,0 +1,131 @@
+body {
+	font-family: Roboto, serif;
+	text-align: center;
+}
+
+div {
+  margin: 0;
+  padding: 0;
+}
+
+.container {
+	border: 1px solid #ccc;
+	border-radius: 10px;
+	/*box-shadow: 0 0 10px rgba(0,0,0,0.26);*/
+	box-shadow: 4px 5px 3px white, 8px 10px 6px blue, 12px 15px 9px red;
+	margin-left: 20%;
+	margin-right: 20%;
+	margin-bottom: 1%;
+	background: rgb(250, 249, 230);
+}
+
+.headline {
+	margin: auto;
+}
+
+.headline h1 {
+	font-weight: bolder;
+	font-size: 5.5vw;
+	font-variant: small-caps;
+}
+
+.slider {
+	border-top: 1px solid rgba(143, 143, 143,0.7);
+	background: rgb(247,247,247);
+	margin: auto;
+}
+
+.slider p {
+	font-size: 2.7vw;
+}
+
+.slider #slider_value {
+    color:red;
+    font-weight:bold;
+}
+
+.slider-interface {
+	margin: 2%;
+}
+
+.interface-btn {
+	padding: 4px 4px 4px 4px;
+	border: none;
+	background-color: #fff9b8;
+	color: black;
+	min-width: 10px;
+	width: 8%;
+	height: 8%;
+	text-align: center;
+	text-decoration: none;
+	font-size: 2.5vw;
+	border-radius: 35%;
+	box-shadow: 0 5px #999;
+}
+
+.interface-btn:hover {
+	background-color: #fcea1c;
+}
+
+.interface-btn:active {
+  box-shadow: 0 2px #666;
+  transform: translateY(3px);
+}
+
+.range {
+  -webkit-appearance: none;
+  width: 60%;
+  height: 10px;
+  background: #d3d3d3;
+  outline: none;
+  opacity: 0.7;
+  transition: opacity .2s;
+  transform: translateY(7px);
+}
+
+.range:hover {
+  opacity: 1;
+  color: #fcea1c
+}
+
+.range::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; 
+  background: #f7ea5c;
+  cursor: pointer;
+}
+
+.range::-moz-range-thumb {
+  width: 15px;
+  height: 15px;
+  border-radius: 50%; 
+  background: #f7ea5c;
+  cursor: pointer;
+}
+
+.slice-image {
+	background: rgb(247,247,247);
+}
+
+.slice-image img {
+	border: 1px solid #a1ff54;
+	border-radius: 4px;
+}
+
+.footer {
+	position: fixed;
+	left: 4.5%;
+	bottom: 0;
+	border-top: 1px solid #999;
+	border-left: 1px solid #999;
+	border-right: 1px solid #999;
+	text-align: center;
+	font-size: 1.0vw;
+}
+
+.footer p {
+	width: 15em;
+}
